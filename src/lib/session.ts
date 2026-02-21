@@ -1,5 +1,5 @@
 import { join } from "path";
-import { readdirSync, writeFileSync, existsSync, mkdirSync } from "fs";
+import { readdirSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from "fs";
 import type { Message, Session } from "../types";
 
 const STORE_ROOT = join(import.meta.dir, "../../workspace/");
@@ -19,13 +19,24 @@ function nextSessionId(): string {
   }
   const prefix = todayPrefix();
   const existing = readdirSync(SESSIONS_DIR)
-    .filter((f) => f.startsWith(prefix) && f.endsWith(".json"));
+    .filter((f) => f.startsWith(prefix) && f.endsWith(".jsonl"));
 
   const next = String(existing.length + 1).padStart(3, "0");
   return `${prefix}_${next}`;
 }
 
 let currentSession: Session;
+let sessionFile: string;
+
+function metaLine() {
+  const { id, created_at, updated_at, title, tags } = currentSession;
+  return { type: "meta", id, created_at, updated_at, title, tags };
+}
+
+function writeLine(obj: object): void {
+  if (!existsSync(SESSIONS_DIR)) mkdirSync(SESSIONS_DIR, { recursive: true });
+  appendFileSync(sessionFile, JSON.stringify(obj) + "\n", "utf-8");
+}
 
 export function initSession(): Session {
   const id = nextSessionId();
@@ -38,28 +49,22 @@ export function initSession(): Session {
     tags: [],
     messages: [],
   };
+  sessionFile = join(SESSIONS_DIR, `${id}.jsonl`);
+  // Write initial meta line (creates the file)
+  writeFileSync(sessionFile, JSON.stringify(metaLine()) + "\n", "utf-8");
   return currentSession;
 }
 
 export function appendMessage(msg: Message): void {
+  const wasUntitled = currentSession.title === "New session";
   currentSession.messages.push(msg);
   currentSession.updated_at = new Date().toISOString();
 
-  // Use first user message as title
-  if (currentSession.title === "New session") {
-    const firstUser = currentSession.messages.find((m) => m.role === "user");
-    if (firstUser) {
-      currentSession.title = firstUser.content.slice(0, 60);
-    }
+  if (wasUntitled && msg.role === "user") {
+    currentSession.title = msg.content.slice(0, 60);
+    // Re-emit meta line so the latest title is always readable from the last meta entry
+    writeLine(metaLine());
   }
 
-  saveSession();
-}
-
-function saveSession(): void {
-  if (!existsSync(SESSIONS_DIR)) {
-    mkdirSync(SESSIONS_DIR, { recursive: true });
-  }
-  const filePath = join(SESSIONS_DIR, `${currentSession.id}.json`);
-  writeFileSync(filePath, JSON.stringify(currentSession, null, 2), "utf-8");
+  writeLine({ type: "message", ...msg });
 }

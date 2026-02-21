@@ -9,23 +9,41 @@ function readFile(filePath: string): string {
   return readFileSync(filePath, "utf-8").trim();
 }
 
+function parseJsonl(filePath: string): Session | null {
+  try {
+    const raw = readFileSync(filePath, "utf-8");
+    let meta: Omit<Session, "messages"> | null = null;
+    const messages: Session["messages"] = [];
+
+    for (const line of raw.split("\n")) {
+      if (!line.trim()) continue;
+      const obj = JSON.parse(line);
+      if (obj.type === "meta") {
+        meta = { id: obj.id, created_at: obj.created_at, updated_at: obj.updated_at, title: obj.title, tags: obj.tags };
+      } else if (obj.type === "message") {
+        messages.push({ role: obj.role, content: obj.content, timestamp: obj.timestamp });
+      }
+    }
+
+    return meta ? { ...meta, messages } : null;
+  } catch {
+    return null;
+  }
+}
+
 function getRecentSessions(n: number): Session[] {
   const sessionsDir = join(STORE_ROOT, "sessions");
   if (!existsSync(sessionsDir)) return [];
 
   const files = readdirSync(sessionsDir)
-    .filter((f) => f.endsWith(".json"))
+    .filter((f) => f.endsWith(".jsonl"))
     .sort()
     .reverse()
     .slice(0, n);
 
   return files.flatMap((file) => {
-    try {
-      const raw = readFileSync(join(sessionsDir, file), "utf-8");
-      return [JSON.parse(raw) as Session];
-    } catch {
-      return [];
-    }
+    const session = parseJsonl(join(sessionsDir, file));
+    return session ? [session] : [];
   });
 }
 

@@ -14,8 +14,8 @@ retain/
 │   │   ├── PREFERENCES.md        # Coding style, workflow, communication prefs
 │   │   └── USER.md               # Static profile info about the user
 │   └── sessions/
-│       ├── session_20260218_001.json
-│       └── session_20260219_001.json
+│       ├── session_20260218_001.jsonl
+│       └── session_20260219_001.jsonl
 └── src/                          # CLI source
 ```
 
@@ -27,22 +27,20 @@ retain/
 | `workspace/memories/USER.md`         | Markdown | Static profile: name, location, timezone, preferences    |
 | `workspace/memories/MEMORY.md`       | Markdown | Dynamic facts appended automatically via `[MEMORY]` tags |
 | `workspace/memories/PREFERENCES.md`  | Markdown | Coding style, workflow, and communication preferences    |
-| `workspace/sessions/*.json`          | JSON     | Structured chat history with metadata                    |
+| `workspace/sessions/*.jsonl`         | JSON Lines | Append-only chat history; one JSON object per line     |
 
-## Session JSON Schema
+## Session JSONL Schema
 
-```json
-{
-  "id": "string",
-  "created_at": "ISO8601",
-  "updated_at": "ISO8601",
-  "title": "string",
-  "tags": ["string"],
-  "messages": [
-    { "role": "user|assistant", "content": "string", "timestamp": "ISO8601" }
-  ]
-}
+Each session file is a series of newline-delimited JSON objects. The first line is always a `meta` record; a new `meta` line is appended whenever the session title is updated. Each message is its own line.
+
+```jsonl
+{"type":"meta","id":"session_20260221_001","created_at":"ISO8601","updated_at":"ISO8601","title":"New session","tags":[]}
+{"type":"meta","id":"session_20260221_001","created_at":"ISO8601","updated_at":"ISO8601","title":"First user message up to 60 chars","tags":[]}
+{"type":"message","role":"user","content":"string","timestamp":"ISO8601"}
+{"type":"message","role":"assistant","content":"string","timestamp":"ISO8601"}
 ```
+
+When reading, the **last `meta` line** is used for session metadata; all `message` lines are collected in order.
 
 ## CLI Setup
 

@@ -9,3 +9,4 @@
 - JR has an executive assistant named Aaron
 - JR's executive assistant Aaron lives in the Philippines
 - JR has a dog named Beanie who is 16 years old.
+- The Beatles are one of JR's favorite bands.
