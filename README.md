@@ -16,11 +16,15 @@ bun install
 
 **2. Set your API key**
 
+Retain loads environment variables from `~/.config/retain/.env` at startup, so you don't need to export anything in your shell profile.
+
 ```bash
-export ANTHROPIC_API_KEY=sk-ant-...
+mkdir -p ~/.config/retain
+echo "ANTHROPIC_API_KEY=sk-ant-..." > ~/.config/retain/.env
+chmod 600 ~/.config/retain/.env
 ```
 
-Add this to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.) to persist it across sessions.
+Add any other environment variables to that file using `KEY=value` format. Values already set in your shell environment are never overwritten.
 
 **3. Register the global command**
 
