@@ -1,4 +1,11 @@
-# Retain
+```
+ ██████╗ ███████╗████████╗ █████╗ ██╗███╗   ██╗
+ ██╔══██╗██╔════╝╚══██╔══╝██╔══██╗██║████╗  ██║
+ ██████╔╝█████╗     ██║   ███████║██║██╔██╗ ██║
+ ██╔══██╗██╔══╝     ██║   ██╔══██║██║██║╚██╗██║
+ ██║  ██║███████╗   ██║   ██║  ██║██║██║ ╚████║
+ ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+```
 
 Handcrafted CLI chat with knowledge retention to Markdown. Retain reads file-based context and assembles a system prompt before each session, so every conversation builds on what came before.
 
