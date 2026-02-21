@@ -56,7 +56,18 @@ retain/
 │   └── sessions/
 │       ├── session_20260218_001.jsonl
 │       └── session_20260219_001.jsonl
-└── src/                          # CLI source
+└── src/
+    ├── components/
+    │   ├── App.tsx               # Root component, slash command dispatch
+    │   ├── Header.tsx            # ASCII "RETAIN" banner
+    │   ├── InputBox.tsx          # Input field with loading state
+    │   └── MessageList.tsx       # Chat history renderer
+    └── lib/
+        ├── anthropic.ts          # Anthropic API client
+        ├── config.ts             # ~/.config/retain/.env loader
+        ├── context.ts            # System prompt assembly
+        ├── memory.ts             # Memory extraction and file helpers
+        └── session.ts            # Session JSONL management
 ```
 
 ## File Roles
@@ -96,6 +107,27 @@ bun link   # registers `retain` globally (~/.bun/bin/retain)
 ```bash
 retain
 ```
+
+When launched, Retain displays an ASCII banner and drops you into an interactive chat session. The input box accepts free-form messages or slash commands.
+
+### Slash Commands
+
+Type `/` to trigger the command palette. A suggestion panel appears above the input box, filtered in real time as you type. Navigate and run commands without lifting your hands from the keyboard:
+
+| Key       | Action                                 |
+| --------- | -------------------------------------- |
+| `↑` / `↓` | Move through suggestions               |
+| `Tab`     | Auto-complete the highlighted command  |
+| `Enter`   | Run the highlighted (or typed) command |
+
+| Command        | Description                                 |
+| -------------- | ------------------------------------------- |
+| `/memories`    | Display saved facts (`MEMORY.md`)           |
+| `/preferences` | Display user preferences (`PREFERENCES.md`) |
+| `/profile`     | Display user profile (`USER.md`)            |
+| `/cancel`      | Dismiss the command palette                 |
+
+Any input beginning with `/` is handled locally and never sent to the LLM. Unknown commands display an inline error message.
 
 ## Memory Flow
 

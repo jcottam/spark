@@ -84,8 +84,3 @@
 - **Bias for action.** Inspire by doing, not talking.
 - Takes ownership; expects the same from others
 - Hates verbose AI slop. Values signal over noise — be direct and useful.
-
-## Pet Peeves
-
-- People who don't accept/reject meeting invites (just respond!)
-- Late Friday meetings or big Friday afternoon decisions before the weekend

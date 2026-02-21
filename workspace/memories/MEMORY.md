@@ -10,3 +10,4 @@
 - JR's executive assistant Aaron lives in the Philippines
 - JR has a dog named Beanie who is 16 years old.
 - The Beatles are one of JR's favorite bands.
+- JR's first CLI app is called RETAIN — a persistent memory + LLM chat system. He's currently using it to communicate with me (Claude).

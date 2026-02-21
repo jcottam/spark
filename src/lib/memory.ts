@@ -3,6 +3,16 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 
 const STORE_ROOT = join(import.meta.dir, "../../workspace/");
 const FACTS_FILE = join(STORE_ROOT, "memories/MEMORY.md");
+const MEMORIES_DIR = join(STORE_ROOT, "memories");
+
+/** Reads a file from workspace/memories/ by filename. Returns content or an error string. */
+export function readMemoryFile(filename: string): string {
+  const filePath = join(MEMORIES_DIR, filename);
+  if (!existsSync(filePath)) {
+    return `No file found at workspace/memories/${filename}`;
+  }
+  return readFileSync(filePath, "utf-8");
+}
 
 /**
  * Scans an assistant response for [MEMORY] blocks and appends extracted
