@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { Box, Text, useInput, useApp } from "ink";
 import MessageList from "./MessageList";
 import InputBox from "./InputBox";
-import { chat } from "../lib/anthropic";
+import { chat, MODEL } from "../lib/anthropic";
 import { appendMessage } from "../lib/session";
 import { extractAndSaveMemories } from "../lib/memory";
 import type { Message } from "../types";
@@ -72,7 +72,7 @@ export default function App({ systemPrompt, initialMessages }: Props) {
         <Text bold color="magenta">
           Retain
         </Text>
-        <Text dimColor>  claude-3-5-sonnet  •  Ctrl+C to quit</Text>
+        <Text dimColor>  {MODEL}  •  Ctrl+C to quit</Text>
       </Box>
 
       <Box flexDirection="column" flexGrow={1} marginBottom={1}>

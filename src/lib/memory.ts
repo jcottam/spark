@@ -2,11 +2,11 @@ import { join } from "path";
 import { readFileSync, writeFileSync, existsSync } from "fs";
 
 const STORE_ROOT = join(import.meta.dir, "../../workspace/");
-const FACTS_FILE = join(STORE_ROOT, "memories/facts.md");
+const FACTS_FILE = join(STORE_ROOT, "memories/MEMORY.md");
 
 /**
  * Scans an assistant response for [MEMORY] blocks and appends extracted
- * facts as bullet points to memories/facts.md.
+ * facts as bullet points to memories/MEMORY.md.
  *
  * Handles two formats:
  *   Single-line:  [MEMORY] Jamie loves skiing
@@ -65,7 +65,7 @@ export function extractAndSaveMemories(responseText: string): string[] {
   return saved;
 }
 
-/** Appends a fact bullet to facts.md. Returns true if written, false if duplicate. */
+/** Appends a fact bullet to MEMORY.md. Returns true if written, false if duplicate. */
 function appendToFacts(fact: string): boolean {
   if (!existsSync(FACTS_FILE)) return false;
 

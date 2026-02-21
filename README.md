@@ -10,9 +10,9 @@ retain/
 │   ├── context/
 │   │   └── system_prompt.md      # Base instructions + assembly rules
 │   ├── memories/
-│   │   ├── facts.md              # Persistent facts about the user
-│   │   ├── projects.md           # Active project details
-│   │   └── user_preferences.md  # Coding style, workflow, communication prefs
+│   │   ├── MEMORY.md             # Persistent facts learned during sessions
+│   │   ├── PREFERENCES.md        # Coding style, workflow, communication prefs
+│   │   └── USER.md               # Static profile info about the user
 │   └── sessions/
 │       ├── session_20260218_001.json
 │       └── session_20260219_001.json
@@ -21,11 +21,13 @@ retain/
 
 ## File Roles
 
-| File | Format | Purpose |
-|------|--------|---------|
-| `workspace/context/system_prompt.md` | Markdown | Base system prompt template |
-| `workspace/memories/*.md` | Markdown | Human-editable persistent memory |
-| `workspace/sessions/*.json` | JSON | Structured chat history with metadata |
+| File                                 | Format   | Purpose                                                  |
+| ------------------------------------ | -------- | -------------------------------------------------------- |
+| `workspace/context/system_prompt.md` | Markdown | Base system prompt template                              |
+| `workspace/memories/USER.md`         | Markdown | Static profile: name, location, timezone, preferences    |
+| `workspace/memories/MEMORY.md`       | Markdown | Dynamic facts appended automatically via `[MEMORY]` tags |
+| `workspace/memories/PREFERENCES.md`  | Markdown | Coding style, workflow, and communication preferences    |
+| `workspace/sessions/*.json`          | JSON     | Structured chat history with metadata                    |
 
 ## Session JSON Schema
 
@@ -57,6 +59,38 @@ bun link   # registers `retain` globally (~/.bun/bin/retain)
 retain
 ```
 
+## Memory Flow
+
+### Retrieval — on startup
+
+Every time `retain` launches it assembles a system prompt from three sources, in order:
+
+1. **Base instructions** — `workspace/context/system_prompt.md`
+2. **Memory files** — all `workspace/memories/*.md` (`USER.md`, `MEMORY.md`, `PREFERENCES.md`)
+3. **Recent sessions** — the last 3 session files from `workspace/sessions/`, each summarized as a compact title + message excerpts
+
+All parts are joined with `---` separators and sent as the system prompt before the first user message. The model therefore enters every conversation already aware of your past context.
+
+### Retention — during a session
+
+The model is instructed to flag new persistent information with a `[MEMORY]` tag in its response. Two formats are supported:
+
+```
+[MEMORY] Jamie prefers TypeScript over JavaScript
+
+[MEMORY] Updated facts:
+- Uses Bun as the JS runtime
+- Prefers concise responses
+```
+
+After each assistant reply, the CLI scans the response for `[MEMORY]` blocks, deduplicates against the existing content of `MEMORY.md`, and appends any new facts as bullet points. A confirmation is shown in the TUI when facts are saved.
+
+```
+✦ Memory saved: Uses Bun as the JS runtime
+```
+
+Memory files are plain Markdown — you can read, edit, or prune them at any time.
+
 ## Context Assembly (pseudo-code)
 
 ```python
@@ -68,4 +102,3 @@ def build_system_prompt(n_recent_sessions=3):
         parts.append(summarize(session))
     return "\n\n---\n\n".join(parts)
 ```
-

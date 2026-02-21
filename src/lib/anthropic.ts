@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import type { Message } from "../types";
 
-const MODEL = "claude-haiku-4-5";
+export const MODEL = "claude-haiku-4-5";
 
 function getClient(): Anthropic {
   const apiKey = process.env.ANTHROPIC_API_KEY;
