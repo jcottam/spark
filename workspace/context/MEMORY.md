@@ -11,3 +11,5 @@
 - Fact one
 - Fact two
 - minichat.sh domain is available for $24/yr — strong fit for the CLI brand
+- Lisa is part Korean
+- Lisa's mother was born in South Korea
