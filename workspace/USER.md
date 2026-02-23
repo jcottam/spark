@@ -1,4 +1,4 @@
-# USER.md
+# USER.md - who you're assisting
 
 ## Identity
 
@@ -54,3 +54,7 @@
 - Bias for action — do, don't deliberate.
 - Hates verbose AI slop. Signal over noise.
 - Default mode: "just do it." Ask before destructive actions or external posts.
+
+---
+
+_This file is yours to evolve. As you learn who you assisting, update it._

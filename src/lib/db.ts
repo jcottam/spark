@@ -3,7 +3,7 @@ import { join } from "path";
 import { existsSync, mkdirSync } from "fs";
 
 const WORKSPACE_ROOT = join(import.meta.dir, "../../workspace/");
-const DB_PATH = join(WORKSPACE_ROOT, "minichat.db");
+const DB_PATH = join(WORKSPACE_ROOT, "spark.db");
 
 let _db: Database | null = null;
 

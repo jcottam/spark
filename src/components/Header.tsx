@@ -19,7 +19,7 @@ export default function Header() {
           {line}
         </Text>
       ))} */}
-      <Text bold color="cyan">MiniChat</Text>
+      <Text bold color="cyan">Spark</Text>
       <Box marginTop={1}>
         <Text dimColor>Terminal AI Chat</Text>
         <Text dimColor> • {MODEL} • </Text>

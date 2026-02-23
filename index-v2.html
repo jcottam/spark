@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiniChat — Lightweight Terminal AI Chat with Memory</title>
+    <title>Spark — Lightweight Terminal AI Chat with Memory</title>
     <meta
       name="description"
       content="A developer-native, open-source CLI chat with persistent memory. Lightweight, fast, and extensible — your notes, preferences, and sessions loaded before every conversation."
     />
     <meta
       property="og:title"
-      content="MiniChat — Lightweight Terminal AI Chat with Memory"
+      content="Spark — Lightweight Terminal AI Chat with Memory"
     />
     <meta
       property="og:description"
@@ -200,7 +200,7 @@
         <div class="flex items-center">
           <span
             class="font-medium text-amber-400 text-2xl tracking-widest font-display"
-            >MiniChat</span
+            >Spark</span
           >
         </div>
         <div class="flex items-center gap-6">
@@ -215,7 +215,7 @@
             >Get Started</a
           >
           <a
-            href="https://github.com/jcottam/minichat/tree/main"
+            href="https://github.com/jcottam/spark/tree/main"
             target="_blank"
             rel="noopener"
             class="text-sm bg-zinc-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-zinc-900 transition flex items-center gap-2"
@@ -255,7 +255,7 @@
         <p
           class="text-lg sm:text-xl text-zinc-300 max-w-2xl mb-10 leading-relaxed animate-in stagger-2 text-balance"
         >
-          MiniChat is a lightweight, extensible terminal chat for developers.
+          Spark is a lightweight, extensible terminal chat for developers.
           Start instantly, keep context across sessions, and add tools/skills
           when you need them.
         </p>
@@ -275,11 +275,11 @@
           <div class="p-5 font-mono text-sm space-y-3">
             <p class="flex items-center gap-2 text-xs">
               <span class="text-[#e2a834]">$</span>
-              <span class="text-zinc-400">mchat</span>
+              <span class="text-zinc-400">spark</span>
             </p>
             <p class="text-xs text-zinc-600">
               Loaded: 2 recent threads
-              <span class="text-zinc-700">(~/projects/minichat)</span>
+              <span class="text-zinc-700">(~/projects/spark)</span>
             </p>
 
             <p class="flex gap-2">
@@ -323,19 +323,19 @@
             class="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-xs text-zinc-600"
           >
             <a
-              href="https://github.com/jcottam/minichat/tree/main"
+              href="https://github.com/jcottam/spark/tree/main"
               class="hover:text-zinc-400 transition underline underline-offset-2 decoration-zinc-700"
               >Docs</a
             >
             <span class="text-zinc-700">&middot;</span>
             <a
-              href="https://github.com/jcottam/minichat/issues"
+              href="https://github.com/jcottam/spark/issues"
               class="hover:text-zinc-400 transition underline underline-offset-2 decoration-zinc-700"
               >Issues</a
             >
             <span class="text-zinc-700">&middot;</span>
             <a
-              href="https://github.com/jcottam/minichat/discussions"
+              href="https://github.com/jcottam/spark/discussions"
               class="hover:text-zinc-400 transition underline underline-offset-2 decoration-zinc-700"
               >Discussions</a
             >
@@ -370,7 +370,7 @@
             onclick="
               navigator.clipboard
                 .writeText(
-                  'git clone https://github.com/jcottam/minichat.git && cd minichat && bun install && bun link',
+                  'git clone https://github.com/jcottam/spark.git && cd spark && bun install && bun link',
                 )
                 .then(() => {
                   const t = this.querySelector('.copied');
@@ -381,7 +381,7 @@
           >
             <span class="text-[#e2a834]">$</span>
             <span class="text-zinc-300"
-              >git clone &hellip;minichat.git && bun install && bun link</span
+              >git clone &hellip;spark.git && bun install && bun link</span
             >
             <span
               class="text-zinc-600 hover:text-zinc-400 transition ml-1"
@@ -404,7 +404,7 @@
             >
           </div>
           <p class="text-zinc-600 text-sm">
-            Then run: <code class="font-mono text-zinc-400">mchat</code>
+            Then run: <code class="font-mono text-zinc-400">spark</code>
           </p>
         </div>
       </div>
@@ -421,7 +421,7 @@
               Stop re-explaining yourself.
             </h2>
             <p class="text-zinc-400 mb-8 leading-relaxed">
-              MiniChat loads your profile, memories, and recent sessions on
+              Spark loads your profile, memories, and recent sessions on
               every launch. Every conversation starts where the last one
               ended&mdash;no pasting, no catching up.
             </p>
@@ -450,7 +450,7 @@
                     >Picks up where you left off</span
                   >
                   <p class="text-sm text-zinc-500 mt-0.5">
-                    MiniChat summarizes recent conversations and carries them
+                    Spark summarizes recent conversations and carries them
                     forward. Come back days later&mdash;it still has context.
                   </p>
                 </div>
@@ -502,7 +502,7 @@
             </div>
             <pre
               class="p-5 overflow-x-auto"
-            ><code class="font-mono"><span class="token-comment">// On every launch, MiniChat builds context from:</span>
+            ><code class="font-mono"><span class="token-comment">// On every launch, Spark builds context from:</span>
 
 <span class="token-key">workspace/</span>
 ├── <span class="token-key">context/</span>
@@ -745,7 +745,7 @@
             <div class="w-3 h-3 rounded-full bg-yellow-500/70"></div>
             <div class="w-3 h-3 rounded-full bg-green-500/70"></div>
             <span class="text-xs text-zinc-600 ml-2 font-mono"
-              >mchat &mdash; session 004</span
+              >spark &mdash; session 004</span
             >
           </div>
           <div class="p-5 font-mono text-sm space-y-5">
@@ -855,12 +855,12 @@
               <p class="text-zinc-500">
                 <span class="text-[#4ade80]">$</span>
                 <span class="text-zinc-300"
-                  >git clone https://github.com/jcottam/minichat.git</span
+                  >git clone https://github.com/jcottam/spark.git</span
                 >
               </p>
               <p class="text-zinc-500">
                 <span class="text-[#4ade80]">$</span>
-                <span class="text-zinc-300">cd minichat && bun install</span>
+                <span class="text-zinc-300">cd spark && bun install</span>
               </p>
             </div>
           </div>
@@ -881,7 +881,7 @@
             <div class="bg-[#0a0a0b] rounded-lg p-3 font-mono text-xs">
               <p class="text-zinc-500">
                 <span class="text-[#4ade80]">$</span>
-                <span class="text-zinc-300">mkdir -p ~/.config/minichat</span>
+                <span class="text-zinc-300">mkdir -p ~/.config/spark</span>
               </p>
               <p class="text-zinc-500">
                 <span class="text-[#4ade80]">$</span>
@@ -891,7 +891,7 @@
               </p>
               <p class="text-zinc-500">
                 &nbsp;&nbsp;<span class="text-zinc-300"
-                  >&gt; ~/.config/minichat/.env</span
+                  >&gt; ~/.config/spark/.env</span
                 >
               </p>
             </div>
@@ -915,7 +915,7 @@
                 <span class="text-[#4ade80]">$</span>
                 <span class="text-zinc-300">bun link</span>
               </p>
-              <p class="text-zinc-600 mt-1">→ Registered mchat in ~/.bun/bin</p>
+              <p class="text-zinc-600 mt-1">→ Registered spark in ~/.bun/bin</p>
             </div>
           </div>
 
@@ -933,7 +933,7 @@
             <div class="bg-[#0a0a0b] rounded-lg p-3 font-mono text-xs">
               <p class="text-zinc-500">
                 <span class="text-[#4ade80]">$</span>
-                <span class="text-zinc-300">mchat</span>
+                <span class="text-zinc-300">spark</span>
               </p>
               <p class="text-[#4ade80] mt-1">
                 ✓ Context assembled. Ready to chat.
@@ -953,7 +953,7 @@
           Minimal bytes, maximum vibes.
         </h2>
         <p class="text-zinc-500 mb-10">
-          Install MiniChat, add your API key, and pick up every conversation
+          Install Spark, add your API key, and pick up every conversation
           where you left off.
         </p>
 
@@ -961,12 +961,12 @@
           class="relative bg-[#131315] border border-[#232326] rounded-xl p-4 max-w-lg mx-auto mb-8 glow-amber-sm group"
         >
           <code class="font-mono text-sm text-zinc-300"
-            >git clone https://github.com/jcottam/minichat.git</code
+            >git clone https://github.com/jcottam/spark.git</code
           >
           <button
             onclick="
               navigator.clipboard
-                .writeText('git clone https://github.com/jcottam/minichat.git')
+                .writeText('git clone https://github.com/jcottam/spark.git')
                 .then(() => {
                   const i = this.querySelector('.icon-copy'),
                     c = this.querySelector('.icon-check');
@@ -1018,7 +1018,7 @@
 
         <div class="flex items-center justify-center gap-8 text-sm">
           <a
-            href="https://github.com/jcottam/minichat/tree/main"
+            href="https://github.com/jcottam/spark/tree/main"
             target="_blank"
             rel="noopener"
             class="text-zinc-400 hover:text-white transition flex items-center gap-2 group"
@@ -1054,7 +1054,7 @@
         </div>
         <div class="flex gap-6 text-sm text-zinc-600">
           <a
-            href="https://github.com/jcottam/minichat/tree/main"
+            href="https://github.com/jcottam/spark/tree/main"
             target="_blank"
             rel="noopener"
             class="hover:text-white transition"

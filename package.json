@@ -1,10 +1,9 @@
 {
-  "name": "minichat",
+  "name": "spark",
   "version": "0.1.0",
   "private": true,
   "bin": {
-    "mchat": "./src/index.tsx",
-    "minichat": "./src/index.tsx"
+    "spark": "./src/index.tsx"
   },
   "scripts": {
     "start": "bun run src/index.tsx",

@@ -1,7 +1,7 @@
 # Spark — Project Vision
 
 **Domain:** [sparkagent.dev](https://sparkagent.dev)
-**Repo:** github.com/jcottam/retain (rename pending)
+**Repo:** github.com/jcottam/spark
 
 ---
 
@@ -35,7 +35,7 @@ spark/
 │   ├── core/           # Shared: db, memory, sessions, context, tools
 │   ├── providers/      # Model adapters (Anthropic, OpenAI, Ollama)
 │   ├── cli/            # Ink TUI (primary interface)
-│   ├── server/         # Hono API backend
+│   ├── api/            # Hono API backend
 │   └── web/            # Dashboard frontend
 ```
 
@@ -83,7 +83,7 @@ spark/
 - 🔲 Web dashboard
 - 🔲 Web chat
 - 🔲 Chrome extension
-- 🔲 Rename from MiniChat → Spark
+- ✅ Rename from MiniChat → Spark
 
 ## Author
 

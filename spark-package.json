@@ -1,11 +1,10 @@
 {
-  "name": "@minichat/cli",
+  "name": "@spark/cli",
   "version": "0.0.1",
   "description": "Lightweight open-source terminal AI chat with memory. BYOK.",
   "main": "index.js",
   "bin": {
-    "minichat": "./bin/minichat.js",
-    "mchat": "./bin/minichat.js"
+    "spark": "./bin/spark.js"
   },
   "license": "MIT",
   "publishConfig": {

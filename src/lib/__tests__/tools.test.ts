@@ -4,7 +4,7 @@ import { mkdirSync, writeFileSync, existsSync, rmSync, chmodSync } from "fs";
 import { tmpdir } from "os";
 import { executeTool, getBinDir } from "../tools";
 
-const TMP_ROOT = join(tmpdir(), `minichat-tools-test-${Date.now()}`);
+const TMP_ROOT = join(tmpdir(), `spark-tools-test-${Date.now()}`);
 const BIN_DIR = getBinDir();
 
 beforeAll(() => {
