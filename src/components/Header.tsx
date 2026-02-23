@@ -19,9 +19,11 @@ export default function Header() {
           {line}
         </Text>
       ))} */}
-      <Text bold color="cyan">Spark</Text>
+      <Text bold color="cyan">
+        🔥 spark
+      </Text>
       <Box marginTop={1}>
-        <Text dimColor>Terminal AI Chat</Text>
+        <Text dimColor>Terminal AI with a memory.</Text>
         <Text dimColor> • {MODEL} • </Text>
         <Text color="cyan">/help</Text>
         <Text dimColor> for commands • built by John Ryan Cottam</Text>
