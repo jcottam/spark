@@ -198,9 +198,36 @@
         class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
       >
         <div class="flex items-center">
+          <div
+            class="relative flex items-center justify-center rounded-md p-1.5 bg-amber/10 transition-all duration-300 group-hover:bg-accent-primary/20 group-hover:shadow-[0_0_20px_rgba(122,162,247,0.3)]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-terminal h-6 w-6 text-accent-primary"
+            >
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" x2="20" y1="19" y2="19"></line>
+            </svg>
+            <div
+              class="absolute inset-0 rounded-md overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                style="background-size: 100% 200%"
+                class="absolute inset-0 bg-gradient-to-b from-transparent via-accent-primary/10 to-transparent animate-[scan_2s_ease-in-out_infinite]"
+              ></div>
+            </div>
+          </div>
           <span
-            class="font-medium text-amber-400 text-2xl tracking-widest font-display"
-            >spark</span
+            class="font-medium text-amber-400 text-2xl tracking-widest font-display uppercase"
+            >spark agents</span
           >
         </div>
         <div class="flex items-center gap-6">
@@ -249,15 +276,15 @@
             class="text-amber-500 font-light tracking-wider text-lg font-mono"
             ><span class="text-amber-600">&gt;</span>
             <!-- Local-first. Hybrid search. MCP, skills, tools. -->
-            extensible chat with memory
+            extensible agents built in seconds
           </span>
         </h1>
 
         <p
           class="text-lg text-zinc-400 max-w-2xl mx-auto text-center mb-10 leading-relaxed animate-in stagger-2 text-balance"
         >
-          Use any model with your own keys. History stays local and is recalled
-          with hybrid search. Add MCP servers, skills, and tools as needed.
+          Use any model with your own keys. History stays local. Hybrid search.
+          Add MCP servers, skills, and tools as needed.
         </p>
 
         <!-- Hero CTA -->
@@ -380,7 +407,7 @@
           <div class="p-5 font-mono text-sm space-y-3">
             <p class="flex items-center gap-2 text-xs">
               <span class="text-[#e2a834]">$</span>
-              <span class="text-zinc-400">schat</span>
+              <span class="text-zinc-400">spark</span>
             </p>
             <p class="text-xs text-zinc-600">
               Loaded: 2 recent threads
@@ -423,8 +450,8 @@
               Stop re-explaining yourself.
             </h2>
             <p class="text-zinc-400 mb-8 leading-relaxed">
-              Spark loads your profile, memories, and recent sessions on
-              every launch. Every conversation starts where the last one
+              Spark loads your profile, memories, and recent sessions on every
+              launch. Every conversation starts where the last one
               ended&mdash;no pasting, no catching up.
             </p>
 
@@ -917,9 +944,7 @@
                 <span class="text-[#4ade80]">$</span>
                 <span class="text-zinc-300">bun link</span>
               </p>
-              <p class="text-zinc-600 mt-1">
-                → Registered spark in ~/.bun/bin
-              </p>
+              <p class="text-zinc-600 mt-1">→ Registered spark in ~/.bun/bin</p>
             </div>
           </div>
 
@@ -957,8 +982,8 @@
           Minimal bytes, maximum vibes.
         </h2>
         <p class="text-zinc-500 mb-10">
-          Install Spark, add your API key, and pick up every conversation
-          where you left off.
+          Install Spark, add your API key, and pick up every conversation where
+          you left off.
         </p>
 
         <div

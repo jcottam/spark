@@ -1,3 +1,9 @@
+---
+role: memory
+description: Long-term curated facts persisted across sessions. Auto-updated by [MEMORY] tags. Do not overwrite manually.
+loaded_by: main-session
+---
+
 # MEMORY.md - Persistent Memories
 
 ## General Facts

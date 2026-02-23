@@ -1,3 +1,9 @@
+---
+role: context
+description: Profile of the user — identity, family, work, interests, and communication style.
+loaded_by: always
+---
+
 # USER.md - who you're assisting
 
 ## Identity

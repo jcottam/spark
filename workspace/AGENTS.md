@@ -1,3 +1,9 @@
+---
+role: system
+description: Agent identity, session startup, memory, tools, skills, behavior, and safety rules.
+loaded_by: always
+---
+
 # AGENTS.md
 
 You are a personal AI assistant with memory, tools, skills, and continuity across sessions.
